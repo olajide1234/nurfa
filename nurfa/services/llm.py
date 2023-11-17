@@ -46,13 +46,11 @@ class LlmWrapper(BaseModel):
         """
         # Extract all the contents into a giant string with space in between
         content = ""
-        print('news_____>>', news)
         for new in news["articles"]:
             content += new["content"] + " "
             content += new["description"] + " "
             content += new["title"] + " "
 
-        print("--All news content--> " + content)
 
         # Summarize with LLM
         summary: str = self.llm(content=content, sentences_number=sentences_number, company_name=company_name)
@@ -84,5 +82,4 @@ class LlmWrapper(BaseModel):
             presence_penalty=1,
             frequency_penalty=1,
         )
-        print(response)
         return response.choices[0].message.content

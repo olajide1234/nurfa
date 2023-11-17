@@ -153,13 +153,11 @@ class NewsAPIWrapper(BaseModel):
             self.base_url.format(route="everything"),
             params,
         )
-        print(req.url)
 
         if req.url is None:
             raise ValueError("prepared url is None, this should not happen")
 
         response = requests.get(req.url, headers=headers)
-        print(req.url)
 
         if not response.ok:
             raise Exception(f"HTTP error {response.status_code}")
