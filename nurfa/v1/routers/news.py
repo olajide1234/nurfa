@@ -25,8 +25,6 @@ def get_company_news(
 ) -> dict:
     try:
         company_name = get_company_name(url)
-        # company_name = 'apple'
-        print('---company name-->' + company_name)
         search_term = f"{company_name} {search}" if search else company_name
         company_news = get_news(
             search=urllib.parse.quote_plus(search_term),
@@ -38,5 +36,3 @@ def get_company_news(
         return company_news
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    # except NotFound as e:
-    #     raise HTTPException(status_code=404, detail=str(e))

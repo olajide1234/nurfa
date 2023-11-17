@@ -21,7 +21,6 @@ def get_news(search: str, company_name: str, fromTime: str, toTime: str) -> dict
         
         summary = llm.summarize(news=news, sentences_number=50, company_name=company_name)
         
-        print('----after summary--------> ' + json.dumps(summary))
         return dict(
             search=search,
             summary=summary,
