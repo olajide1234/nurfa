@@ -1,0 +1,22 @@
+{
+  "name": "nurfa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-python-requirements": "^6.0.0"
+  },
+  "devDependencies": {
+    "serverless-lift": "^1.28.0",
+    "serverless-offline": "^13.1.2"
+  }
+}

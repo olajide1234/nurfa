@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+		  "charliermarsh.ruff",
+		  "matangover.mypy",
+		  "ms-python.black-formatter"
+		]
+	  }
+}

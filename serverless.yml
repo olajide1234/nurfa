@@ -1,0 +1,36 @@
+service: Nurfa
+package:
+  individually: true
+provider:
+  name: aws
+  profile: ${opt:aws-profile, "default"}
+  region: "us-west-2"
+  stage: ${opt:stage, "dev"}
+  runtime: python3.11
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+  - serverless-lift
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    usePoetry: true
+
+constructs:
+  nurfaTable:
+    type: database/dynamodb-single-table
+
+functions:
+  app:
+    handler: nurfa.main.handler 
+    environment:
+      STAGE: ${self:provider.stage}
+      TABLE_NAME: ${construct:nurfaTable.tableName}
+    events:
+      - http:
+          method: get
+          path: /
+      - http:
+          method: any
+          path: /{proxy+}
